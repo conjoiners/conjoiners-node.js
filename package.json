@@ -1,0 +1,27 @@
+{
+  "name": "conjoiners-node.js",
+  "version": "0.0.0",
+  "description": "conjoiners - multi-platform / multi-language reactive programming library (for Node.js)",
+  "main": "lib/conjoiners.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "zmq": "2.3.0"
+  },
+  "devDependencies": {
+    "nodeunit": "0.8.0"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/conjoiners/conjoiners-node.js.git"
+  },
+  "keywords": [
+    "conjoiners"
+  ],
+  "author": "Pavlo Baron",
+  "license": "MIT"
+}
