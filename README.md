@@ -34,13 +34,6 @@ order to observe new properties in the object. This is because it's
 not possible in ECMAScript to have a generic catch-all setter/getter
 for any value.
 
-This library bring some dependencies: nodeunit is used for unit
-tests. And of course zmq as the 0MQ interface. So you would need both
-of them.
-
-To run the tests, just run bin/test_it.sh. Look there for complete,
-yet simple examples.
-
 ## Development
 
 *Make sure that you have [ØMQ](http://www.zeromq.org/intro:get-the-software)
