@@ -1,12 +1,9 @@
-var conjoiners = require('../lib/conjoiners')
+var conjoiners = require('../lib/conjoiners');
 
-function Test() {
-};
-
-var cj1 = new Test();
-var cj2 = new Test();
-conjoiners.implant(cj1, "../test/test_conf.json", "test");
-conjoiners.implant(cj2, "../test/test_conf.json", "test2");
+var cj1 = {};
+var cj2 = {};
+conjoiners.implant(cj1, "test/conf.json", "test");
+conjoiners.implant(cj2, "test/conf.json", "test2");
 
 exports.test_send = function(test) {
     test.expect(1);
