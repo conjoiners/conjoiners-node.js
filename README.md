@@ -28,7 +28,8 @@ time you access a value, it will return the most current one,
 eventually set through a transenlightenment from other
 conjoiner. That's basically it.
 
-Internally, there is a pretty weird loop implemented through timers in
+Internally, conjoiners for Node.js works through monkey patching the
+object provided to the implant function call. There is also a pretty weird loop implemented through timers in
 order to observe new properties in the object. This is because it's
 not possible in ECMAScript to have a generic catch-all setter/getter
 for any value.
