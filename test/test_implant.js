@@ -1,4 +1,4 @@
-var conjoiners = require('conjoiners')
+var conjoiners = require('../lib/conjoiners')
 
 function Test() {
 };
@@ -16,7 +16,7 @@ exports.test_no_implant = function(test) {
 
 exports.test_implant = function(test) {
     test.expect(1);
-    iyes.test_value = "implant_value"; 
+    iyes.test_value = "implant_value";
     var afterSleep = function() {
         test.equal(iyes.test_value, "implant_value");
         test.done();

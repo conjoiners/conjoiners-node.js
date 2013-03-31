@@ -1,4 +1,4 @@
-var conjoiners = require('conjoiners')
+var conjoiners = require('../lib/conjoiners')
 
 function Test() {
 };
