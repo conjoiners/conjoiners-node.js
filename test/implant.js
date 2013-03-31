@@ -1,18 +1,19 @@
 var conjoiners = require('../lib/conjoiners');
 
 exports['values should be accessible on implanted obj'] = function(test) {
+    'use strict';
+
     test.expect(1);
 
     var obj = {};
-    conjoiners.implant(obj, "test/conf.json", "test", function() {
-        obj.test_value = "implant_value";
+    conjoiners.implant(obj, 'test/conf.json', 'test_implant', function() {
+        obj.val = 'implant_value';
+
         var afterSleep = function() {
-            test.equal(obj.test_value, "implant_value");
+            test.equal(obj.val, 'implant_value');
             test.done();
         };
 
-        setTimeout(afterSleep, 1100);
+        setTimeout(afterSleep, 100);
     });
 };
-
-setTimeout(process.exit, 2000);
