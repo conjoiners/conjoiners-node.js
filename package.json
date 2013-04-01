@@ -1,0 +1,33 @@
+{
+  "name": "conjoiners-node.js",
+  "version": "0.0.0",
+  "description": "conjoiners - multi-platform / multi-language reactive programming library (for Node.js)",
+  "main": "lib/conjoiners.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "zmq": "2.3.0"
+  },
+  "devDependencies": {
+    "grunt": "0.4.1",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "grunt-contrib-jshint": "0.3.0",
+    "grunt-contrib-watch": "~0.3.1"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/conjoiners/conjoiners-node.js.git"
+  },
+  "keywords": [
+    "conjoiners"
+  ],
+  "author": "Pavlo Baron",
+  "licenses" : [{
+    "type": "Apache",
+    "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+  }]
+}
