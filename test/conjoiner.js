@@ -2,8 +2,9 @@ var conjoiners = require('../lib/conjoiners');
 
 var cj1 = {};
 var cj2 = {};
-conjoiners.implant(cj1, 'test/conf.json', 'test');
-conjoiners.implant(cj2, 'test/conf.json', 'test2');
+conjoiners.implant(cj1, 'test/conf.json', 'test', function(o) {
+    conjoiners.implant(cj2, 'test/conf.json', 'test2');
+}};
 
 exports['simple inter-process communication'] = function(test) {
     'use strict';
