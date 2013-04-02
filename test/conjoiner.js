@@ -2,24 +2,19 @@ var conjoiners = require('../lib/conjoiners');
 
 var cj1 = {};
 var cj2 = {};
-conjoiners.implant(cj1, 'test/conf.json', 'test', function(o) {
-    conjoiners.implant(cj2, 'test/conf.json', 'test2');
-}};
+conjoiners.implant(cj1, 'test/conf_conjoiner.json', 'test', function(o) {
+    conjoiners.implant(cj2, 'test/conf_conjoiner.json', 'test2', function(o) {
+        cj1.val = 'test_value';
+    });
+});
 
 exports['simple inter-process communication'] = function(test) {
     'use strict';
 
     test.expect(1);
-    var firstSleep = function() {
-        cj1.val = 'test_value';
-        setTimeout(secondSleep, 1000);
-    };
-
-    var secondSleep = function() {
+ 
+    setTimeout(function() {
         test.equal(cj2.val, 'test_value');
         test.done();
-    };
-
-    setTimeout(firstSleep, 1500);
+    }, 1500);
 };
-
