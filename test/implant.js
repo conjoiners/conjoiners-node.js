@@ -5,9 +5,7 @@ var conjoiners = require('../lib/conjoiners');
 exports['values should be accessible on implanted obj'] = function(test) {
     test.expect(1);
 
-    var obj = {
-        val: null
-    };
+    var obj = {};
 
     conjoiners.implant(obj, 'test/conf.json', 'test_implant').then(function() {
         obj.val = 'implant_value';
