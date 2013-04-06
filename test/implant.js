@@ -11,5 +11,5 @@ exports['values should be accessible on implanted obj'] = function(test) {
         obj.val = 'implant_value';
         test.equal(obj.val, 'implant_value');
         test.done();
-    });
+    }).done();
 };
