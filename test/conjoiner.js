@@ -3,24 +3,22 @@
 var conjoiners = require('../lib/conjoiners');
 
 exports['simple inter-process communication'] = function(test) {
-    test.expect(4);
-
-    var cj1 = {};
-    var cj1Name = 'test';
-    var cj2 = {};
+    test.expect(3);
 
     var value = 'test_value';
+    var cj1 = {};
+    var cj1Name = 'test';
+    var cj2 = {
+        onTransenlightenment: function (event) {
+            test.equal(event.property, 'val');
+            test.equal(this[event.property], value);
+        }
+    };
 
     conjoiners.implant(cj1, 'test/conf.json', cj1Name).then(function() {
         return conjoiners.implant(cj2, 'test/conf.json', 'test2');
-    }).then(function (emitter) {
-        emitter.on('update', function(event) {
-            test.equal(event.obj, cj2);
-            test.equal(event.property, 'val');
-            test.equal(event.value, value);
-        });
-
-        cj1.val = 'test_value';
+    }).then(function () {
+        cj1.val = value;
 
         setTimeout(function() {
             test.equal(cj2.val, value);

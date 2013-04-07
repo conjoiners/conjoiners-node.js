@@ -3,23 +3,21 @@
 var conjoiners = require('../lib/conjoiners');
 
 exports['values should be accessible on implanted obj'] = function(test) {
-    test.expect(4);
+    test.expect(3);
 
-    var obj = {};
     var value = 'implant_value';
     var conjoinerName = 'test_implant';
 
-    conjoiners.implant(obj, 'test/conf.json', conjoinerName)
-    .then(function(emitter) {
-
-        // events should be emitted for local updates
-        emitter.on('update', function(event) {
-            test.equal(event.obj, obj);
+    var obj = {
+        onTransenlightenment: function (event) {
             test.equal(event.property, 'val');
-            test.equal(event.value, 'implant_value');
+            test.equal(this[event.property], value);
             test.done();
-        });
+        }
+    };
 
+    conjoiners.implant(obj, 'test/conf.json', conjoinerName)
+    .then(function() {
         obj.val = value;
         test.equal(obj.val, 'implant_value');
     }).done();

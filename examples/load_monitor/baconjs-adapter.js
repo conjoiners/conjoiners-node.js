@@ -1,9 +1,19 @@
 'use strict';
 
-var Bacon = require("baconjs").Bacon;
+var Bacon = require('baconjs').Bacon;
+var EventEmitter = require('events').EventEmitter;
 
-exports.streamify = function (obj, emitter) {
+exports.streamify = function (obj) {
     var streamObject = {};
+
+    var emitter = new EventEmitter();
+    var originalOnTransenlightenment = obj.onTransenlightenment;
+    obj.onTransenlightenment = function (event) {
+        if (originalOnTransenlightenment) {
+            originalOnTransenlightenment.call(obj, event);
+        }
+        emitter.emit('update', event);
+    };
 
     Object.keys(obj).forEach(function (property) {
         var stream = new Bacon.EventStream(function (subscriber) {
@@ -11,7 +21,7 @@ exports.streamify = function (obj, emitter) {
 
             var listener = function (event) {
                 if (event.property === property) {
-                    subscriber(new Bacon.Next(event.value));
+                    subscriber(new Bacon.Next(obj[property]));
                 }
             };
             emitter.on('update', listener);

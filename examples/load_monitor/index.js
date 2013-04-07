@@ -16,8 +16,8 @@ Q.spread([
     implant(monitor, configurationFilePath, 'monitor'),
     implant(apiServer, configurationFilePath, 'api_server'),
     implant(webServer, configurationFilePath, 'web_server')
-], function (monitorEmitter) {
-    var monitorStreamer = streamify(monitor, monitorEmitter);
+], function () {
+    var monitorStreamer = streamify(monitor);
 
     simulateLoad(apiServer, 'apiServerLoad');
     simulateLoad(webServer, 'webServerLoad');
