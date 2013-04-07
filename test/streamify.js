@@ -6,7 +6,6 @@ var conjoiners = require('../lib/index');
 exports['Bacon streams should emit events for all updates'] = function (test) {
 
     var cj1 = {};
-    var cj1Name = 'test';
 
     // properties need to be defined beforehand for streamified properties
     var cj2 = {
