@@ -15,7 +15,8 @@
     "grunt": "0.4.1",
     "grunt-contrib-nodeunit": "0.1.2",
     "grunt-contrib-jshint": "0.3.0",
-    "grunt-contrib-watch": "0.3.1"
+    "grunt-contrib-watch": "0.3.1",
+    "baconjs": "~0.3.4"
   },
   "scripts": {
     "test": "grunt"

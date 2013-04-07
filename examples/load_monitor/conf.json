@@ -1,0 +1,15 @@
+{
+    "recv_timeout": 50,
+    "conjoiners": [
+        {
+            "name": "api_server",
+            "url": "ipc:///tmp/api_server"
+        }, {
+            "name": "web_server",
+            "url": "ipc:///tmp/web_server"
+        }, {
+            "name": "monitor",
+            "url": "ipc:///tmp/monitor"
+        }
+    ]
+}
