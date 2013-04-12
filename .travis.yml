@@ -10,10 +10,10 @@ before_install:
  - sudo make install
  - sudo /sbin/ldconfig
  - cd ..
- - nvm use 0.10
- - sudo npm install -g grunt-cli
+ - npm install -g grunt-cli
  - npm install
 language: node_js
 node_js:
+ - "0.8"
  - "0.10"
 script: "grunt travis"
