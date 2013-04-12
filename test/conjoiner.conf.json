@@ -7,9 +7,6 @@
         }, {
             "name": "test2",
             "url": "ipc:///tmp/conjoiners_test2"
-        }, {
-            "name": "test_implant",
-            "url": "ipc:///tmp/conjoiners_test_implant"
         }
     ]
 }
