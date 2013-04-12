@@ -1,4 +1,4 @@
-# conjoiners - multi-platform / multi-language reactive programming library
+# conjoiners - multi-platform / multi-language reactive programming library [![Build Status](https://travis-ci.org/conjoiners/conjoiners-node.js.png?branch=master)](https://travis-ci.org/conjoiners/conjoiners-node.js)
 
 conjoiners is a library aiming to enable reactive programming for
 existing (or new) systems written in different languages and running
