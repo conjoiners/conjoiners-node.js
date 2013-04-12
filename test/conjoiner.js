@@ -12,6 +12,8 @@ exports['simple inter-process communication'] = function(test) {
         onTransenlightenment: function (event) {
             test.equal(event.property, 'val');
             test.equal(this[event.property], value);
+            test.equal(cj2.val, value);
+            test.done();
         }
     };
 
@@ -19,10 +21,5 @@ exports['simple inter-process communication'] = function(test) {
         return conjoiners.implant(cj2, 'test/conf.json', 'test2');
     }).then(function () {
         cj1.val = value;
-
-        setTimeout(function() {
-            test.equal(cj2.val, value);
-            test.done();
-        }, 1500);
     }).done();
 };
