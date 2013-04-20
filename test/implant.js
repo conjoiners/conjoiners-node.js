@@ -27,3 +27,25 @@ exports['values should be accessible on implanted obj'] = function(test) {
         test.equal(obj.val, value);
     });
 };
+
+exports['config cannot be found'] = function(test) {
+    test.expect(2);
+
+    conjoiners.implant({}, 'nOtEXiTIng.json', 'foobar', function (err) {
+        test.ok(err != null);
+    }).fail(function (err) {
+        test.ok(err != null);
+        test.done();
+    }).done();
+};
+
+exports['conjoiner cannot be found'] = function(test) {
+    test.expect(2);
+
+    conjoiners.implant({}, 'implant.conf.json', 'nOtEXiTIng', function (err) {
+        test.ok(err != null);
+    }).fail(function (err) {
+        test.ok(err != null);
+        test.done();
+    }).done();
+};
