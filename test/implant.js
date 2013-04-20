@@ -16,9 +16,14 @@ exports['values should be accessible on implanted obj'] = function(test) {
         }
     };
 
-    conjoiners.implant(obj, 'test/implant.conf.json', conjoinerName)
-    .then(function() {
+    conjoiners.implant(obj,
+            'test/implant.conf.json',
+            conjoinerName,
+            function (err) {
+        if (err) {
+            throw err;
+        }
         obj.val = value;
         test.equal(obj.val, value);
-    }).done();
+    });
 };
