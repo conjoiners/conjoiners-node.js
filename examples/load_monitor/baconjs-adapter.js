@@ -6,15 +6,6 @@ var EventEmitter = require('events').EventEmitter;
 exports.streamify = function (obj) {
     var streamObject = {};
 
-    var emitter = new EventEmitter();
-    var originalOnTransenlightenment = obj.onTransenlightenment;
-    obj.onTransenlightenment = function (event) {
-        if (originalOnTransenlightenment) {
-            originalOnTransenlightenment.call(obj, event);
-        }
-        emitter.emit('update', event);
-    };
-
     Object.keys(obj).forEach(function (property) {
         var stream = new Bacon.EventStream(function (subscriber) {
             subscriber(new Bacon.Next(obj[property]));
@@ -24,10 +15,10 @@ exports.streamify = function (obj) {
                     subscriber(new Bacon.Next(obj[property]));
                 }
             };
-            emitter.on('update', listener);
+            obj.transenlightenment.on(property, listener);
 
             return function() {
-                emitter.removeListener('update', listener);
+                obj.transenlightenment.removeListener(property, listener);
             };
         });
 
