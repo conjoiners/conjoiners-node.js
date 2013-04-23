@@ -1,7 +1,6 @@
 'use strict';
 
 var Bacon = require('baconjs').Bacon;
-var EventEmitter = require('events').EventEmitter;
 
 exports.streamify = function (obj) {
     var streamObject = {};
