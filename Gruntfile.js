@@ -32,7 +32,7 @@ module.exports = function(grunt) {
                 maxcomplexity: 4,
                 maxdepth: 3,
                 maxparams: 4,
-                maxstatements: 10,
+                maxstatements: 20,
                 maxlen: 80,
                 newcap: true,
                 noarg: true,
